@@ -1,0 +1,86 @@
+server:
+  port: 8039
+  servlet:
+#    context-path: /api
+    session:
+      cookie:
+        domain: localhost
+        max-age: 270000
+
+spring:
+  main:
+    #    解决升级Spring Boot2.6后,因依赖循环引用导致启动时报错的问题
+    allow-circular-references: true
+  # session 配置
+  session:
+    # todo 取消注释开启分布式 session（须先配置 Redis）
+    store-type: redis
+    # 30 天过期
+    timeout: 2592000
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://xxx/medicalsys?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&autoReconnect=true&serverTimezone=Asia/Shanghai
+
+    #    url: jdbc:mysql://localhost:3306/medicalsys?characterEncoding=UTF-8&serverTimezone=UTC
+    username: xxx
+    password: xxx
+#    username: root
+#    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: xxx
+    port: 6379
+  mail:
+    host: smtp.qq.com
+    username: xxx@qq.com
+    password: xxx
+    port: 465
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.socketFactory.port: 465
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+  thymeleaf:
+    prefix: classpath:/templates/
+    encoding: UTF-8
+    cache: false
+    suffix: .html
+    servlet:
+      content-type: text/html
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+#实现下划线转驼峰
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+# todo 阿里云对象存储v.1
+aliyun:
+  oss:
+    file:
+      endpoint: xxxxxxxxxxxxxxxxxx
+      keyid: xxxxxxxxx
+      keysecret: xxxxxxxx
+      bucketname: xxxxxxxxxx
+
+
+
+
+
+

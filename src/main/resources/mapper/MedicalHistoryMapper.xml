@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.medicalsysbackend.mapper.MedicalHistoryMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.medicalsysbackend.domain.MedicalHistory">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="user_id" column="user_id" jdbcType="INTEGER"/>
+            <result property="medical_condition" column="medical_condition" jdbcType="VARCHAR"/>
+            <result property="diagnosis_date" column="diagnosis_date" jdbcType="DATE"/>
+            <result property="treatment" column="treatment" jdbcType="VARCHAR"/>
+            <result property="doctor_name" column="doctor_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,medical_condition,
+        diagnosis_date,treatment,doctor_name
+    </sql>
+</mapper>

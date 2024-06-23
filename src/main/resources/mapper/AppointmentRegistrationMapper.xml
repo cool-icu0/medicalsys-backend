@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.medicalsysbackend.mapper.AppointmentRegistrationMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.medicalsysbackend.domain.AppointmentRegistration">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="hospitalDepartment" column="hospital_department" jdbcType="VARCHAR"/>
+            <result property="doctorId" column="doctor_id" jdbcType="INTEGER"/>
+            <result property="appointmentDate" column="appointment_date" jdbcType="TIMESTAMP"/>
+            <result property="appPrices" column="app_prices" jdbcType="INTEGER"/>
+            <result property="isComplete" column="is_complete" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,hospital_department,
+        doctor_id,appointment_date,app_prices,
+        is_complete
+    </sql>
+</mapper>

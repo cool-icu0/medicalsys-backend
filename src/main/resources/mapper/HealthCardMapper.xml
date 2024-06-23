@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.medicalsysbackend.mapper.HealthCardMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.medicalsysbackend.domain.HealthCard">
+            <id property="card_id" column="card_id" jdbcType="INTEGER"/>
+            <result property="card_number" column="card_number" jdbcType="VARCHAR"/>
+            <result property="user_id" column="user_id" jdbcType="INTEGER"/>
+            <result property="holder_name" column="holder_name" jdbcType="VARCHAR"/>
+            <result property="expiration_date" column="expiration_date" jdbcType="DATE"/>
+            <result property="card_prices" column="card_prices" jdbcType="DOUBLE"/>
+            <result property="is_delete" column="is_delete" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        card_id,card_number,user_id,
+        holder_name,expiration_date,card_prices,
+        is_delete
+    </sql>
+</mapper>
